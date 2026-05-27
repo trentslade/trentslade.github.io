@@ -3241,7 +3241,7 @@ input, select, textarea {
 		#wrapper section {
 			display: grid;
 			grid-template-areas: "header content" "footer content";
-			grid-template-columns: 45vw 65vw;
+			grid-template-columns: 30vw 70vw;
 			grid-template-rows: 1fr;
 		}
 

@@ -3412,7 +3412,7 @@ input, select, textarea {
 
 		#wrapper > section > header:before {
 			height: calc(100% + 10rem);
-			left: calc(50vw - 5rem);
+			left: calc(30vw - 5rem);
 		}
 
 		#wrapper > section > header h1:before, #wrapper > section > header h2:before {

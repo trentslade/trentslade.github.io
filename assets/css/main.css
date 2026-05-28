@@ -3947,3 +3947,15 @@ iframe[src*=".pdf"] {
 		word-wrap: break-word !important;
 	}
 }
+
+/* Tighten the left-side alignment and margins for all desktop headers */
+#wrapper section > header {
+	padding-left: 0.5rem !important; /* Reduces the large default left padding */
+}
+
+/* Fix the desktop layout shift specifically for the PDF/Independent Study content container */
+@media screen and (min-width: 1153px) {
+	#wrapper > section > .content > section {
+		left: calc(-30vw - 2rem) !important; /* Pulls the content back into perfect alignment with the rest of the page */
+	}
+}

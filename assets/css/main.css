@@ -3912,42 +3912,4 @@ iframe, video, .video-wrapper {
 	}
 }
 
-/* Normalize PDF embedding behavior to prevent layout shifting */
-object[type="application/pdf"], 
-embed[type="application/pdf"],
-iframe[src*=".pdf"] {
-	width: 100% !important;
-	max-width: 100% !important;
-	height: 600px !important;
-	display: block !important;
-	margin: 1.5rem 0 !important;
-	clear: both !important;
-}
-
-/* --- THE OVERLAP & MARGIN FIXES --- */
-
-/* 1. Neutralize the negative positioning math causing the text, images, and PDFs to spill over */
-#wrapper > section > .content > section {
-	left: 0 !important;
-}
-
-/* 2. Fix the master grid tracks so content stays on its own side of the line */
-#wrapper section {
-	grid-template-columns: 30vw 70vw !important;
-}
-
-/* 3. Pull the headers tightly to the left and create a safe protective margin on the right */
-#wrapper section > header {
-	padding-left: 0 !important;
-	padding-right: 2rem !important;
-	margin-left: 0 !important;
-}
-
-#wrapper section > header h2 {
-	margin: 2rem 0 !important;
-	word-wrap: break-word !important;
-	overflow-wrap: break-word !important;
-}
-
-
 

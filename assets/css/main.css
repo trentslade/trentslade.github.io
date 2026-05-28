@@ -3884,3 +3884,12 @@ input, select, textarea {
 		}
 
 	}
+
+iframe, video, .video-wrapper {
+	width: 100% !important;
+	max-width: 100% !important;
+	height: auto !important;
+	aspect-ratio: 16 / 9 !important;
+	display: block !important;
+	margin: 1rem 0 !important;
+}

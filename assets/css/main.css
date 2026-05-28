@@ -3949,26 +3949,5 @@ iframe[src*=".pdf"] {
 	overflow-wrap: break-word !important;
 }
 
-/* Force single-column mobile layout stack */
-@media screen and (max-width: 480px) {
-	#wrapper section {
-		grid-template-areas: "header" "content" "footer" !important;
-		grid-template-columns: 1fr !important;
-		grid-template-rows: auto !important;
-		margin: 1rem 0 !important;
-	}
-
-	#wrapper section > header {
-		padding: 2rem 1.5rem 0 1.5rem !important;
-		width: 100% !important;
-		max-width: 100% !important;
-	}
-
-	#wrapper > section.intro > header h1 {
-		font-size: 3rem !important;
-		line-height: 1.2 !important;
-		word-wrap: break-word !important;
-	}
-}
 
 

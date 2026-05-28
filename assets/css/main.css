@@ -3893,3 +3893,12 @@ iframe, video, .video-wrapper {
 	display: block !important;
 	margin: 1rem 0 !important;
 }
+
+/* Dynamically scale the main H1 portfolio title on mobile portrait screens */
+@media screen and (max-width: 480px) {
+	#wrapper > section.intro > header h1 {
+		font-size: 11vw !important; /* Dynamically shrinks and grows with the screen width */
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+}

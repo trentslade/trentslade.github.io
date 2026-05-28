@@ -3885,6 +3885,15 @@ input, select, textarea {
 
 	}
 
+
+
+
+
+
+
+
+
+/* --- RESPONSIVE MEDIA FIXED OVERRIDES --- */
 iframe, video, .video-wrapper {
 	width: 100% !important;
 	max-width: 100% !important;
@@ -3897,7 +3906,7 @@ iframe, video, .video-wrapper {
 /* Dynamically scale the main H1 portfolio title on mobile portrait screens */
 @media screen and (max-width: 480px) {
 	#wrapper > section.intro > header h1 {
-		font-size: 11vw !important; /* Dynamically shrinks and grows with the screen width */
+		font-size: 11vw !important;
 		word-wrap: break-word;
 		overflow-wrap: break-word;
 	}
@@ -3909,24 +3918,38 @@ embed[type="application/pdf"],
 iframe[src*=".pdf"] {
 	width: 100% !important;
 	max-width: 100% !important;
-	height: 600px !important; /* Forces a stable vertical frame height */
+	height: 600px !important;
 	display: block !important;
 	margin: 1.5rem 0 !important;
 	clear: both !important;
 }
 
-/* Global Grid Spacing & Long Word Overrun Correction */
+/* --- THE OVERLAP & MARGIN FIXES --- */
+
+/* 1. Neutralize the negative positioning math causing the text, images, and PDFs to spill over */
+#wrapper > section > .content > section {
+	left: 0 !important;
+}
+
+/* 2. Fix the master grid tracks so content stays on its own side of the line */
+#wrapper section {
+	grid-template-columns: 30vw 70vw !important;
+}
+
+/* 3. Pull the headers tightly to the left and create a safe protective margin on the right */
 #wrapper section > header {
-	padding-right: 1rem !important; /* Pulls back inner padding so text doesn't push rightward */
+	padding-left: 0 !important;
+	padding-right: 2rem !important;
+	margin-left: 0 !important;
 }
 
 #wrapper section > header h2 {
-	margin: 2rem 0 !important; /* Reclaims left and right margin spaces completely */
+	margin: 2rem 0 !important;
 	word-wrap: break-word !important;
-	overflow-wrap: break-word !important; /* Guarantees a long word gracefully line-breaks instead of crashing into content */
+	overflow-wrap: break-word !important;
 }
 
-/* Force single-column layout on small phone screens to stop clipping */
+/* Force single-column mobile layout stack */
 @media screen and (max-width: 480px) {
 	#wrapper section {
 		grid-template-areas: "header" "content" "footer" !important;
@@ -3942,12 +3965,10 @@ iframe[src*=".pdf"] {
 	}
 
 	#wrapper > section.intro > header h1 {
-		font-size: 3rem !important; /* Forces a stable, readable title size */
+		font-size: 3rem !important;
 		line-height: 1.2 !important;
 		word-wrap: break-word !important;
 	}
 }
-
-
 
 

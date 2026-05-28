@@ -3275,6 +3275,8 @@ input, select, textarea {
 				grid-area: content;
 				max-width: 60rem;
 				position: relative;
+				padding-left: 2rem
+    			padding-right: 2rem
 			}
 
 			#wrapper section > footer {
@@ -3558,7 +3560,7 @@ input, select, textarea {
 
 					#wrapper section > header {
 						justify-self: start;
-						padding: 0;
+						padding: 2rem 2rem 0 2rem;
 						text-align: left;
 						width: 100%;
 					}
@@ -3568,7 +3570,7 @@ input, select, textarea {
 						}
 
 					#wrapper section > .content {
-						padding: 0;
+						padding: 2rem;
 						width: 100%;
 						overflow-x: hidden;
 					}

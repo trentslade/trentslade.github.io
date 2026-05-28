@@ -3948,14 +3948,24 @@ iframe[src*=".pdf"] {
 	}
 }
 
-/* Tighten the left-side alignment and margins for all desktop headers */
-#wrapper section > header {
-	padding-left: 0.5rem !important; /* Reduces the large default left padding */
+/* Force-override the entire page grid to pull the left margins in */
+#wrapper section {
+	grid-template-columns: 20vw 80vw !important; /* Shrinks the header track from 30vw to 20vw on desktop */
 }
 
-/* Fix the desktop layout shift specifically for the PDF/Independent Study content container */
+/* Realign the content panel layout offset to match the new grid width */
 @media screen and (min-width: 1153px) {
-	#wrapper > section > .content > section {
-		left: calc(-30vw - 2rem) !important; /* Pulls the content back into perfect alignment with the rest of the page */
+	#wrapper section > .content {
+		padding-left: 2rem !important; /* Pulls the overall text frame leftward */
 	}
+	
+	#wrapper > section > .content > section {
+		left: calc(-20vw - 4rem) !important; /* Re-calculates the template's custom offset for the PDF section */
+	}
+}
+
+/* Eliminate the remaining dead space to the left of the titles */
+#wrapper section > header {
+	padding-left: 0 !important;
+	margin-left: 0 !important;
 }

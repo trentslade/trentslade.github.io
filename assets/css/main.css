@@ -3948,22 +3948,25 @@ iframe[src*=".pdf"] {
 	}
 }
 
-/* Force-override the entire page grid to pull the left margins in */
+
+/* 1. Reset the layout columns back to the template's native proportions to stop overlap */
 #wrapper section {
-	grid-template-columns: 20vw 80vw !important; /* Shrinks the header track from 30vw to 20vw on desktop */
+	grid-template-columns: 30vw 70vw !important; 
 }
 
-/* Realign the content panel layout offset to match the new grid width */
+/* 2. Tighten the left margin of the headers safely without breaking the content grid */
+#wrapper section > header {
+	padding-left: 0 !important;      /* Removes the huge left padding */
+	padding-right: 2rem !important;   /* Keeps a protective gap on the right */
+	margin-left: -2rem !important;    /* Gently nudges the text leftward inside its safe zone */
+}
+
+/* 3. Re-normalize the Independent Study content panel offset */
 @media screen and (min-width: 1153px) {
-	#wrapper section > .content {
-		padding-left: 2rem !important; /* Pulls the overall text frame leftward */
-	}
-	
 	#wrapper > section > .content > section {
-		left: calc(-20vw - 4rem) !important; /* Re-calculates the template's custom offset for the PDF section */
+		left: calc(-30vw - 5rem) !important; /* Resets to factory layout positioning */
 	}
 }
-
 /* Eliminate the remaining dead space to the left of the titles */
 #wrapper section > header {
 	padding-left: 0 !important;

@@ -3902,3 +3902,48 @@ iframe, video, .video-wrapper {
 		overflow-wrap: break-word;
 	}
 }
+
+/* Normalize PDF embedding behavior to prevent layout shifting */
+object[type="application/pdf"], 
+embed[type="application/pdf"],
+iframe[src*=".pdf"] {
+	width: 100% !important;
+	max-width: 100% !important;
+	height: 600px !important; /* Forces a stable vertical frame height */
+	display: block !important;
+	margin: 1.5rem 0 !important;
+	clear: both !important;
+}
+
+/* Global Grid Spacing & Long Word Overrun Correction */
+#wrapper section > header {
+	padding-right: 1rem !important; /* Pulls back inner padding so text doesn't push rightward */
+}
+
+#wrapper section > header h2 {
+	margin: 2rem 0 !important; /* Reclaims left and right margin spaces completely */
+	word-wrap: break-word !important;
+	overflow-wrap: break-word !important; /* Guarantees a long word gracefully line-breaks instead of crashing into content */
+}
+
+/* Force single-column layout on small phone screens to stop clipping */
+@media screen and (max-width: 480px) {
+	#wrapper section {
+		grid-template-areas: "header" "content" "footer" !important;
+		grid-template-columns: 1fr !important;
+		grid-template-rows: auto !important;
+		margin: 1rem 0 !important;
+	}
+
+	#wrapper section > header {
+		padding: 2rem 1.5rem 0 1.5rem !important;
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+
+	#wrapper > section.intro > header h1 {
+		font-size: 3rem !important; /* Forces a stable, readable title size */
+		line-height: 1.2 !important;
+		word-wrap: break-word !important;
+	}
+}

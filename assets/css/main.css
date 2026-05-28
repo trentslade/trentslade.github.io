@@ -3949,26 +3949,69 @@ iframe[src*=".pdf"] {
 }
 
 
-/* 1. Reset the layout columns back to the template's native proportions to stop overlap */
+
+
+
+
+/* --- ULTIMATE ALIGNMENT & OVERLAP FIX --- */
+
+/* 1. Force sections to use a flexible layout that prevents text/image spillover */
 #wrapper section {
-	grid-template-columns: 30vw 70vw !important; 
+	display: flex !important;
+	flex-direction: row !important;
+	flex-wrap: nowrap !important;
+	grid-template-columns: none !important; /* Disables the broken grid settings */
+	margin: 2rem 0 !important;
 }
 
-/* 2. Tighten the left margin of the headers safely without breaking the content grid */
+/* 2. Set strict, non-overlapping widths for the column zones */
 #wrapper section > header {
-	padding-left: 0 !important;      /* Removes the huge left padding */
-	padding-right: 2rem !important;   /* Keeps a protective gap on the right */
-	margin-left: -2rem !important;    /* Gently nudges the text leftward inside its safe zone */
-}
-
-/* 3. Re-normalize the Independent Study content panel offset */
-@media screen and (min-width: 1153px) {
-	#wrapper > section > .content > section {
-		left: calc(-30vw - 5rem) !important; /* Resets to factory layout positioning */
-	}
-}
-/* Eliminate the remaining dead space to the left of the titles */
-#wrapper section > header {
-	padding-left: 0 !important;
+	flex: 0 0 25% !important;   /* Fixes the header column strictly at 25% width */
+	width: 25% !important;
+	padding-left: 0 !important;  /* Instantly tightens your left-side margins */
+	padding-right: 1.5rem !important;
 	margin-left: 0 !important;
+	text-align: left !important;
+}
+
+#wrapper section > .content {
+	flex: 0 0 75% !important;   /* Gives the content panel the remaining 75% width */
+	width: 75% !important;
+	padding: 0 2rem !important;
+	margin: 0 !important;
+}
+
+/* 3. Strip away the template's custom offset positions that break the PDF/Images */
+#wrapper > section > .content > section {
+	left: 0 !important;          /* Resets all sections to a uniform starting point */
+	position: relative !important;
+	width: 100% !important;
+}
+
+/* 4. Ensure the PDF object conforms strictly to the new boundaries */
+object[type="application/pdf"], 
+embed[type="application/pdf"],
+iframe[src*=".pdf"] {
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 1.5rem 0 !important;
+	display: block !important;
+}
+
+/* 5. Keep the background vertical line from slashing through your layout */
+#wrapper > section > header:before {
+	left: 25% !important;        /* Re-aligns the template line perfectly to the new column boundary */
+}
+
+/* 6. Keep mobile formatting pristine */
+@media screen and (max-width: 1152px) {
+	#wrapper section {
+		flex-direction: column !important;
+	}
+	#wrapper section > header,
+	#wrapper section > .content {
+		flex: 0 0 100% !important;
+		width: 100% !important;
+		padding: 1rem !important;
+	}
 }

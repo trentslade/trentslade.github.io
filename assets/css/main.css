@@ -3425,7 +3425,7 @@ input, select, textarea {
 		}
 
 		#wrapper > section > .content > section {
-			left: calc(-50vw - 5rem);
+			left: calc(-30vw - 5rem);
 		}
 
 			#wrapper > section > .content > section > header {

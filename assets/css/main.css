@@ -3913,3 +3913,30 @@ iframe, video, .video-wrapper {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- PDF AND PRINT MARGIN OVERRIDES --- */
+@media print {
+    /* Sets the margin for the physical PDF pages */
+    @page {
+        margin: 1.5in 1.2in;
+    }
+
+    /* Adjusts the main content wrapper to ensure text aligns beautifully with the new margins */
+    #wrapper section > .content,
+    #wrapper > section > .content {
+        padding-left: 3rem !important;
+        padding-right: 3rem !important;
+        max-width: 100% !important;
+    }
+}
